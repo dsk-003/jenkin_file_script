@@ -1,14 +1,14 @@
 pipeline {
   agent any
   stages{
-    stage('test1'){  
-      steps{   
-        echo"The script is on Git Hub"
+    stage('fetch'){
+      steps{
+        git branch: 'master' , url: "https://github.com/dsk-003/jenkin_file_script.git"
       }
     }
-    stage('test2'){
-      steps{
-        echo"IT is working"
+    stage('run'){  
+      steps{   
+        sh "python3 add.py"
       }
     }
   }
